@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'app/view/contact.dart';
+import 'app/view/listcontact.dart';
 import 'app/view/home_page.dart';
 import 'app/view/new_contact.dart';
 
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => HomePage(),
         "/newContact": (context) => NewContact(),
-        "/contact": (context) => Contact(),
+        "/contact": (context) => ListContact(),
       },
     );
   }
