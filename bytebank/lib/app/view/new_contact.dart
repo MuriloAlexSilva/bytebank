@@ -49,7 +49,7 @@ class _NewContactState extends State<NewContact> {
                     final String name = _nameController.text;
                     final int accountNumber =
                         int.tryParse(_accountNumberController.text);
-                    final Contact newContact = Contact(name, accountNumber);
+                    final Contact newContact = Contact(name, accountNumber, 0);
                     Navigator.pop(context, newContact);
                   },
                   child: Text("Create"),
