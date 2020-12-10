@@ -1,3 +1,5 @@
 # App ByteBank
 
- App ByteBank do curso da Alura
+ App ByteBank desenvolivo durante o curso da Alura de Flutter
+
+
