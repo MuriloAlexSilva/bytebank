@@ -1,3 +1,4 @@
+import 'package:bytebank/app/view/delete_page.dart';
 import 'package:flutter/material.dart';
 import 'app/view/listcontact.dart';
 import 'app/view/home_page.dart';
@@ -11,7 +12,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         buttonTheme: ButtonThemeData(
@@ -31,6 +31,7 @@ class MyApp extends StatelessWidget {
         "/": (context) => HomePage(),
         "/newContact": (context) => NewContact(),
         "/contact": (context) => ListContact(),
+        "/deletePage": (context) => DeletePage(),
       },
     );
   }

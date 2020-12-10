@@ -1,8 +1,10 @@
-import 'package:bytebank/database/app_database.dart';
+import 'package:bytebank/database/dao/contact_dao.dart';
 import 'package:bytebank/models/contact.dart';
 import 'package:flutter/material.dart';
 
 class ListContact extends StatelessWidget {
+  final ContactDao _dao = ContactDao();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,10 +13,18 @@ class ListContact extends StatelessWidget {
         backgroundColor: Theme.of(context).primaryColor,
         centerTitle: true,
         title: Text("Contacts"),
+        actions: [
+          FlatButton(
+              child: Icon(
+                Icons.person_remove_outlined,
+                color: Colors.white,
+              ),
+              onPressed: () => Navigator.of(context).pushNamed("/deletePage"))
+        ],
       ),
       body: FutureBuilder<List<Contact>>(
         initialData: List(),
-        future: findAll(),
+        future: _dao.findAll(),
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.none:
@@ -59,7 +69,15 @@ class _ContactItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
         child: ListTile(
-            title: Text(contact.name),
-            subtitle: Text(contact.accountNumber.toString())));
+      title: Text("Name: ${contact.name}"),
+      subtitle: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text("Account Number: ${contact.accountNumber.toString()}"),
+          Text("id: ${contact.id.toString()}"),
+        ],
+      ),
+    ));
   }
 }
